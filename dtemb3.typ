@@ -3,7 +3,7 @@
 #import "utils.typ":flag,hobby-edge,bezier-edge,angled_flag
 
 
-#set page(height: auto,width: auto)
+#set page(height: 8cm,width: 10cm)
 #set text(size: 13pt)
 
 
