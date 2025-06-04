@@ -3,9 +3,9 @@
 
 #let smalldiag = (node-stroke: .1em,
  node-shape:circle,
-	node-fill: black,
- edge-stroke:0.06em,
-	spacing: 0.2em,
+	// node-fill: black,
+ edge-stroke:0.08em,
+	// spacing: 1.5mm,
  )
 
 #let dtnodes(..style) ={
@@ -24,28 +24,63 @@
 #let dtedges =  (
  (vertices:(<OW>,<OE>),bend:88deg),
  (vertices:(<OE>,<OW>),bend:88deg),
- (vertices:(<IW>,<OW>),stroke:(dash:(0.42pt,3pt))),
  (vertices:(<IE>,<OE>),stroke:(dash:(0.42pt,3pt))),
+ (vertices:(<IW>,<OW>),stroke:(dash:(0.42pt,3pt))),
  (vertices:(<IN>,<IE>),bend:43deg),
  (vertices:(<IE>,<IS>),bend:43deg),
  (vertices:(<IW>,<IN>),bend:43deg),
  (vertices:(<IS>,<IW>),bend:43deg),
  (vertices:(<IN>,<IS>)),
   )
- 
-#let dtsmall(bitvec)={
-  box(baseline: 4pt,
- diagram(
+
+  #let edgeA = (marks:"-",mark-scale:10%)
+#let edgeB = (marks:"-",stroke:gray,mark-scale:10%)
+
+
+#let dtsmall(bitvec,scale:1.5mm)={
+  
+let d = diagram(
 	..smalldiag,
- dtnodes(fill:black,radius:0.5pt),
+ spacing:scale,
+ dtnodes(radius:0.3mm,layer:1,fill:black,stroke:1pt+black),{
+  let dtedges =  (
+ (vertices:(<OW>,<OE>),bend:88deg),
+ (vertices:(<OE>,<OW>),bend:88deg),
+ (vertices:(<IE>,<OE>)),
+ (vertices:(<IW>,<OW>)),
+ (vertices:(<IN>,<IE>),bend:43deg),
+ (vertices:(<IE>,<IS>),bend:43deg),
+ (vertices:(<IW>,<IN>),bend:43deg),
+ (vertices:(<IS>,<IW>),bend:43deg),
+ (vertices:(<IN>,<IS>)),
+  ) 
   for (eid,(i,e)) in bitvec.zip(dtedges).enumerate(){
     if i != 0{
-      edge(..e,..edgeA)
+      if type(i)==float{
+        if i>0.{
+        edge(..e,marks:((inherit:">",pos:0.5),),mark-scale:40%)
+          
+        }else{
+        edge(..e,marks:((inherit:">",pos:0.5,rev:true),),mark-scale:40%)
+          
+        }
+        
+      }else{
+        edge(..e,..edgeA)
+        
+      }
     }else{
       edge(..e,..edgeB)
     }
   }
-)) 
+ }
+)
+// context {
+//   let (width, height) = measure(d)
+//   // width*50%
+//   place(d)
+// }
+d
 }
 
 
