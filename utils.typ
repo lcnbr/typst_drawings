@@ -1,6 +1,10 @@
 #import "@preview/fletcher:0.5.8" as fletcher: diagram, node, cetz,edge,hide
 
-
+#let puncture(center,radius:0.1,stroke:1pt)={
+  cetz.draw.circle(center,radius:radius,stroke:stroke,fill:white)
+  cetz.draw.line((rel:(45deg,radius),to:center),(rel:(225deg,radius),to:center),stroke:stroke)
+  cetz.draw.line((rel:(135deg,radius),to:center),(rel:(315deg,radius),to:center),stroke:stroke)
+}
 
 #let flag(..pts-style,size:0.1,stroke)={
   let (pts, style)  = (pts-style.pos(), pts-style.named())
@@ -11,9 +15,10 @@
               let angle = cetz.vector.angle2(p, a)
             
               cetz.draw.line(p,(rel:(angle - 90deg,2*size),to: c),a,stroke:(thickness:stroke.thickness,cap:"round",join:"round",paint:stroke.paint))
-              cetz.draw.circle(e,radius:size,stroke:stroke,fill:white)
-              cetz.draw.line((rel:(45deg,size),to:e),(rel:(225deg,size),to:e),stroke:stroke)
-              cetz.draw.line((rel:(135deg,size),to:e),(rel:(315deg,size),to:e),stroke:stroke)
+              puncture(e,radius:size,stroke:stroke)
+              // cetz.draw.circle(e,radius:size,stroke:stroke,fill:white)
+              // cetz.draw.line((rel:(45deg,size),to:e),(rel:(225deg,size),to:e),stroke:stroke)
+              // cetz.draw.line((rel:(135deg,size),to:e),(rel:(315deg,size),to:e),stroke:stroke)
         })
 }
 
@@ -73,4 +78,45 @@
           })
         })
       })
+}
+
+
+#let direct_sum(a,b)={
+  if a.len()==b.len(){
+    let res = ()
+    for (i,j) in a.zip(b){
+      if (calc.abs(i)>0) != (calc.abs(j)>0){
+        res.push(1)
+      }else{
+        res.push(0)
+      }
+    }
+    res
+  }else{
+    panic("a.len != b.len")
+  }
+}
+
+#let sum(a,b)={
+  if a.len()==b.len(){
+    let res = ()
+    for (i,j) in a.zip(b){
+     res.push(i+j)
+    }
+    res
+  }else{
+    panic("a.len != b.len")
+  }
+}
+
+#let diff(a,b)={
+  if a.len()==b.len(){
+    let res = ()
+    for (i,j) in a.zip(b){
+     res.push(i - j)
+    }
+    res
+  }else{
+    panic("a.len != b.len")
+  }
 }

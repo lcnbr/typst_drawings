@@ -1,11 +1,10 @@
 #import "@preview/fletcher:0.5.8" as fletcher: diagram, node, cetz,edge,hide
-#import "dt.typ": dtedges,dtnodes
-#import "utils.typ":flag,hobby-edge,bezier-edge,angled_flag
+#import "../dt.typ": dtedges,dtnodes
+#import "../utils.typ":flag,hobby-edge,bezier-edge,angled_flag
 
 
-#set page(height: 8cm,width: 10cm)
+#set page(height: auto,width: auto,margin: 5mm)
 #set text(size: 13pt)
-
 
 #diagram(
  node-shape:circle,
@@ -20,8 +19,8 @@
  
  {
    let edges =(
- (vertices:(<OW>,<OE>),bend:88deg),
- (vertices:(<OE>,<OW>),bend:88deg),
+ (vertices:(<OW>,<OE>),bend:88deg,stroke:purple.darken(20%)),
+ (vertices:(<OE>,<OW>),bend:88deg,stroke:purple.darken(20%)),
  (vertices:(<IW>,<OW>),stroke:(dash:(0.42pt,3pt))),
  (vertices:(<IE>,<OE>),stroke:(dash:(0.42pt,3pt))),
  (vertices:(<IN>,<IE>),bend:43deg),

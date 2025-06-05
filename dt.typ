@@ -22,8 +22,8 @@
  }
 
 #let dtedges =  (
- (vertices:(<OW>,<OE>),bend:88deg),
- (vertices:(<OE>,<OW>),bend:88deg),
+ (vertices:(<OW>,<OE>),bend:88deg,stroke:purple.darken(20%)),
+ (vertices:(<OE>,<OW>),bend:88deg,stroke:purple.darken(20%)),
  (vertices:(<IE>,<OE>),stroke:(dash:(0.42pt,3pt))),
  (vertices:(<IW>,<OW>),stroke:(dash:(0.42pt,3pt))),
  (vertices:(<IN>,<IE>),bend:43deg),
@@ -42,7 +42,7 @@
 let d = diagram(
 	..smalldiag,
  spacing:scale,
- dtnodes(radius:0.3mm,layer:1,fill:black,stroke:1pt+black),{
+ dtnodes(radius:0.3mm,layer:-1,fill:black,stroke:1pt+black.lighten(40%)),{
   let dtedges =  (
  (vertices:(<OW>,<OE>),bend:88deg),
  (vertices:(<OE>,<OW>),bend:88deg),
@@ -70,7 +70,7 @@ let d = diagram(
         
       }
     }else{
-      edge(..e,..edgeB)
+      edge(..e,..edgeB,stroke:(dash:"dotted",paint:black.lighten(80%)))
     }
   }
  }
@@ -84,21 +84,25 @@ d
 }
 
 
-
+#let labedgeB(eid) = (marks:"->-",mark-scale:40%,label:box([$e_#str(eid)$]),label-sep:1mm)
+#set page(height: auto,width: auto,margin: 5mm)
  #let dtlarge(bitvec)={
  diagram(
 	// node-stroke: 1pt,
+ // debug:true,
  node-shape:circle,
 	node-fill: black,
- edge-stroke:0.1em,
+edge-stroke:0.5mm,
 	spacing: 2em,
- dtnodes(fill:black,radius:3pt),
+ dtnodes(fill:black,radius:1mm),
   for (eid,(i,e)) in bitvec.zip(dtedges).enumerate(){
     if i !=0{
-      edge(..e,..labedgeB(eid+1),stroke:black)
+      edge(..e,..labedgeB(eid+1))
     }else{
       edge(..e,..edgeB)
     }
   }
 ) 
 }
+#set text(size: 13pt)
+#dtlarge((1,1,1,1,1,1,1,1,1,))
