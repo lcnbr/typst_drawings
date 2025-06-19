@@ -1,10 +1,11 @@
 #set page("a4",margin:8.5mm)
 #import "@preview/fletcher:0.5.8" as fletcher: diagram, node, cetz,edge,hide
 #import "dt.typ":dtlarge,dtsmall,dtrealsmall
+#import "se.typ":serealsmall,
 #import "utils.typ":flag,hobby-edge,bezier-edge,angled_flag,puncture
 #import "edge_style.typ": photon,gluon,quark,electron,mom_arr
 #set text(font: "New Computer Modern")
-#show math.equation: set text(font: "New Computer Modern Math",size:12pt,fill:red.darken(20%))
+#show math.equation: set text(font: "New Computer Modern Math",size:10pt,fill:red.darken(20%))
 #let electron =(stroke:purple.darken(20%)+0.5mm,)
 #let photon =(stroke:(paint:black,thickness:0.4mm,dash:(1mm,1mm)))
 #let mom_arr =(stroke:black.transparentize(30%)+1pt,mark:(end:"stealth"))
@@ -2237,7 +2238,7 @@ let emb(a)={
 
 let wind(i,..args)={
   show math.equation: set text(font: "New Computer Modern Math",size:15pt,fill:black)
-  $ bold(upright(w))_#i^#box(dtrealsmall((1,1,1,1,1,1,1,1,1,1),scale:0.5mm,radius:0mm),baseline: -0.5mm)=
+  $ bold(upright(w))_#i^#box(serealsmall((1,1,1,1,1,1,1,1,1,1),scale:0.5mm,radius:0mm),baseline: -0.5mm)=
   #math.vec(..((args.pos()).map(a=>$#a$))) $
 }
 
@@ -2249,7 +2250,11 @@ show heading: it => [
 ]
 [== Table of self-energy embeddings]
 table(columns: (1fr,7cm,7cm),rows:(2cm,7cm),align: horizon+center,inset: 20pt,
-[Embedding Signature],[Cut with support $e_1$],[Cut with support $e_2$],
+[Embedding Signature],[#show math.equation: set text(font: "New Computer Modern Math",size:12pt,fill:black)
+
+Cut with support $e_1$],[
+  #show math.equation: set text(font: "New Computer Modern Math",size:12pt,fill:black)
+  Cut with support $e_2$],
 wind(1,1,0,-1,1),emb(embedding1i0),empty,
 
 wind(2,1, 1, -1, 1),emb(embedding2i0),emb(embedding2f0),
