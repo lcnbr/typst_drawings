@@ -1,6 +1,6 @@
 #import "@preview/fletcher:0.5.8" as fletcher: diagram, node, cetz,edge,hide
 
-
+#import "edge_style.typ":photon,gluon,quark,electron 
 #let smalldiag = (node-stroke: .1em,
  node-shape:circle,
 	// node-fill: black,
@@ -22,15 +22,15 @@
  }
 
 #let dtedges =  (
- (vertices:(<OW>,<OE>),bend:88deg,stroke:purple.darken(20%)),
- (vertices:(<OE>,<OW>),bend:88deg,stroke:purple.darken(20%)),
- (vertices:(<IE>,<OE>),stroke:(dash:(0.42pt,3pt))),
- (vertices:(<IW>,<OW>),stroke:(dash:(0.42pt,3pt))),
- (vertices:(<IN>,<IE>),bend:43deg),
- (vertices:(<IE>,<IS>),bend:43deg),
- (vertices:(<IW>,<IN>),bend:43deg),
- (vertices:(<IS>,<IW>),bend:43deg),
- (vertices:(<IN>,<IS>)),
+ (vertices:(<OW>,<OE>),bend:88deg,..electron),
+ (vertices:(<OE>,<OW>),bend:88deg,..electron),
+ (vertices:(<IE>,<OE>),..photon),
+ (vertices:(<IW>,<OW>),..photon),
+ (vertices:(<IN>,<IE>),bend:43deg,..quark),
+ (vertices:(<IE>,<IS>),bend:43deg,..quark),
+ (vertices:(<IW>,<IN>),bend:43deg,..quark),
+ (vertices:(<IS>,<IW>),bend:43deg,..quark),
+ (vertices:(<IN>,<IS>),..gluon),
   )
 
   #let edgeA = (marks:"-",mark-scale:10%)

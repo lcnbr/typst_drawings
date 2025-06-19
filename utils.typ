@@ -16,9 +16,6 @@
             
               cetz.draw.line(p,(rel:(angle - 90deg,2*size),to: c),a,stroke:(thickness:stroke.thickness,cap:"round",join:"round",paint:stroke.paint))
               puncture(e,radius:size,stroke:stroke)
-              // cetz.draw.circle(e,radius:size,stroke:stroke,fill:white)
-              // cetz.draw.line((rel:(45deg,size),to:e),(rel:(225deg,size),to:e),stroke:stroke)
-              // cetz.draw.line((rel:(135deg,size),to:e),(rel:(315deg,size),to:e),stroke:stroke)
         })
 }
 
@@ -43,6 +40,8 @@
             stroke:stroke,
             ..style
           )
+          if mark!=(){
+            
           let mark = fletcher.resolve-mark(mark)
           mark.scale=mark-scale
           cetz.draw.get-ctx(ctx => {
@@ -50,6 +49,7 @@
               let angle = cetz.vector.angle2(p, m)
               fletcher.draw-mark(mark,origin:(a.at(0),a.at(1)),stroke:stroke,angle:angle)
           })
+          }
         })
       })
 }
