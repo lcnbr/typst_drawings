@@ -1467,9 +1467,9 @@ show heading: it => [
 table(columns: (1fr,7cm,7cm),rows:(2cm,7cm),align: horizon+center,inset: 20pt,
 [Embedding Signature],[#show math.equation: set text(font: "New Computer Modern Math",size:12pt,fill:black)
 
-Cut with support $e_1$],[
+Cut with support $a_1$],[
   #show math.equation: set text(font: "New Computer Modern Math",size:12pt,fill:black)
-  Cut with support $e_2$],
+  Cut with support $a_2$],
 wind(1,1, -2, -1, -2),empty,emb(embedding1f0),
 
 wind(2,1, -1, -1, -2),emb(embedding2i0),emb(embedding2f0),

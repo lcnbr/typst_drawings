@@ -149,9 +149,34 @@ edge-stroke:0.5mm,
   }
 ) 
 }
+ #let selargesimple(bitvec)={
+ diagram(
+	// node-stroke: 1pt,
+ // debug:true,
+ node-shape:circle,
+	node-fill: black,
+edge-stroke:0.5mm,
+	spacing: 2em,
+ senodes(fill:black,radius:1mm),
+  for (eid,(i,e)) in bitvec.zip(seedges).enumerate(){
+    if i !=0{
+      edge(..e)
+    }else{
+      edge(..e,..edgeB)
+    }
+  }
+) 
+}
+
+
+
 #set text(size: 13pt)
 #selarge((1,1,1,1,1,1,1,1,1,))
 
-#sesmall((1,1,1,1,1,1,1,1,1,))
+#sesmall((-1.,0,0,1.,1.,1.,0,0,1.,),scale:4mm)
+#sesmall((-1.,-1.,0,0,0,0,0,0,0,),scale:4mm)
+#sesmall((-1.,0,-1.,1.,0,1.,0,0,0,),scale:4mm)
+#sesmall((0,0,0,0,0,0,0,-1.,1.,),scale:4mm)
+#sesmall((0,0,0,0,1.,1.,1.,0,1.,),scale:4mm)
 
 #serealsmall((1,1,1,1,1,1,1,1,1,),radius:0mm,scale:0.8mm)

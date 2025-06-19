@@ -148,5 +148,33 @@ edge-stroke:0.5mm,
   }
 ) 
 }
+
+ #let dtlargesimple(bitvec)={
+ diagram(
+	// node-stroke: 1pt,
+ // debug:true,
+ node-shape:circle,
+	node-fill: black,
+edge-stroke:0.5mm,
+	spacing: 2em,
+ dtnodes(fill:black,radius:1mm),
+  for (eid,(i,e)) in bitvec.zip(dtedges).enumerate(){
+    if i !=0{
+      edge(..e)
+    }else{
+      edge(..e,..edgeB)
+    }
+  }
+) 
+}
 #set text(size: 13pt)
 #dtlarge((1,1,1,1,1,1,1,1,1,))
+
+
+#dtsmall((1.,0,0,1.,1.,1.,0,1.,0,),scale:4mm)
+#dtsmall((1.,1.,0,0,0,0,0,0,0,),scale:4mm)
+#dtsmall((1.,0,-1.,1.,0,1.,0,1.,0,),scale:4mm)
+#dtsmall((0,0,0,0,1.,1.,0,0,-1.,),scale:4mm)
+#dtsmall((0,0,0,0,1.,1.,1.,1.,0,),scale:4mm)
+
+#dtrealsmall((1,1,1,1,1,1,1,1,1,),radius:0mm,scale:0.8mm)
