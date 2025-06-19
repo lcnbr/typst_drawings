@@ -1,13 +1,13 @@
-""#set page("a4")
+#set page("a4",margin:8.5mm)
 #import "@preview/fletcher:0.5.8" as fletcher: diagram, node, cetz,edge,hide
-#import "dt.typ":dtlarge 
+#import "dt.typ":dtlarge,dtsmall,dtrealsmall
 #import "utils.typ":flag,hobby-edge,bezier-edge,angled_flag,puncture
 #import "edge_style.typ": photon,gluon,quark,electron,mom_arr
 #set text(font: "New Computer Modern")
-#show math.equation: set text(font: "New Computer Modern Math",size:12pt)
+#show math.equation: set text(font: "New Computer Modern Math",size:12pt,fill:red.darken(20%))
 #let electron =(stroke:purple.darken(20%)+0.5mm,)
 #let photon =(stroke:(paint:black,thickness:0.4mm,dash:(1mm,1mm)))
-#let mom_arr =(stroke:black+1pt,mark:(end:"stealth"))
+#let mom_arr =(stroke:black.transparentize(30%)+1pt,mark:(end:"stealth"))
 #{
 let cols = (30%,30%,30%)
 let pi =3.14rad
@@ -68,40 +68,40 @@ node(node4.pos)
 let node5= (pos:(0.31, -0.16))
 node(node5.pos)
 edge(node1.pos,(0.10, -0.81),node0.pos,decoration:"electron",angle:6.11rad)
-cetz.draw.content((0.08, -0.93),angle:6.11rad,[$q+k_(0)$])
+cetz.draw.content((0.08, -0.93),angle:6.11rad,[$q+k_(0)$],..north)
 cetz.draw.hobby((0.46, -0.91),(0.09, -0.87),(-0.27, -0.78),..mom_arr)
 edge(node1.pos,(1.00, -1.00),decoration:"electron",angle:5.94rad)
-cetz.draw.content((0.82, -0.81),angle:5.94rad,[$k_(0)$])
+cetz.draw.content((0.82, -0.81),angle:5.94rad,[$k_(0)$],..south)
 cetz.draw.hobby((0.93, -0.91),(0.67, -0.82),..mom_arr)
 edge(node0.pos,(-1.00, -1.00),decoration:"electron",angle:0.44rad)
-cetz.draw.content((-0.62, -0.95),angle:0.44rad,[$k_(0)$])
+cetz.draw.content((-0.62, -0.95),angle:0.44rad,[$k_(0)$],..north)
 cetz.draw.hobby((-0.40, -0.78),(-0.88, -1.01),..mom_arr)
 edge(node0.pos,(0.04, -0.14),node4.pos,decoration:"wave",angle:0.91rad)
-cetz.draw.content((-0.05, -0.07),angle:0.91rad,[$q$])
+cetz.draw.content((-0.05, -0.07),angle:0.91rad,[$q$],..south)
 cetz.draw.hobby((-0.31, -0.53),(0.02, -0.07),(0.40, 0.36),..mom_arr)
 edge(node5.pos,(0.47, -0.50),node1.pos,decoration:"wave",angle:-1.23rad)
-cetz.draw.content((0.58, -0.46),angle:-1.23rad,[$q$])
+cetz.draw.content((0.58, -0.46),angle:-1.23rad,[$q$],..south)
 cetz.draw.hobby((0.40, -0.20),(0.52, -0.47),(0.60, -0.76),..mom_arr)
 edge(node2.pos,(-1.00, 0.00),decoration:"arrow",angle:3.34rad)
-cetz.draw.content((-0.76, -0.07),angle:3.34rad,[$p+k_3$])
+cetz.draw.content((-0.76, -0.07),angle:3.34rad+pi,[$p+k_3$],..north)
 cetz.draw.hobby((-0.89, -0.04),(-0.66, 0.01),..mom_arr)
 edge(node3.pos,(1.00, 0.00),decoration:"arrow",angle:2.69rad)
-cetz.draw.content((0.51, 0.37),angle:2.69rad,[$p+k_3$])
+cetz.draw.content((0.51, 0.37),angle:2.69rad+pi,[$p+k_3$],..south)
 cetz.draw.hobby((0.02, 0.54),(0.94, 0.10),..mom_arr)
 edge(node2.pos,(-0.37, 0.35),node3.pos,decoration:"coil",angle:0.74rad)
-cetz.draw.content((-0.45, 0.44),angle:0.74rad,[$p+2 k_3$])
+cetz.draw.content((-0.45, 0.44),angle:0.74rad,[$p+2 k_3$],..south)
 cetz.draw.hobby((-0.59, 0.18),(-0.41, 0.39),(-0.18, 0.56),..mom_arr)
 edge(node5.pos,(-0.15, -0.05),node2.pos,decoration:"arrow",angle:2.87rad)
-cetz.draw.content((-0.19, -0.16),angle:2.87rad,[$k_3$])
+cetz.draw.content((-0.19, -0.16),angle:2.87rad+pi,[$k_3$],..north)
 cetz.draw.hobby((0.21, -0.20),(-0.15, -0.11),(-0.51, -0.00),..mom_arr)
 edge(node3.pos,(-1.00, 1.00),decoration:"arrow",angle:2.66rad)
-cetz.draw.content((-0.60, 0.66),angle:2.66rad,[$k_3$])
+cetz.draw.content((-0.60, 0.66),angle:2.66rad+pi,[$k_3$],..north)
 cetz.draw.hobby((-0.21, 0.52),(-0.94, 0.90),..mom_arr)
 edge(node4.pos,(1.00, 1.00),decoration:"arrow",angle:4.05rad)
-cetz.draw.content((0.68, 0.78),angle:4.05rad,[$k_3$])
+cetz.draw.content((0.68, 0.78),angle:4.05rad+pi,[$k_3$],..south)
 cetz.draw.hobby((0.89, 0.96),(0.56, 0.54),..mom_arr)
 edge(node4.pos,(0.48, 0.13),node5.pos,decoration:"arrow",angle:-1.94rad)
-cetz.draw.content((0.59, 0.08),angle:-1.94rad,[$q+k_3$])
+cetz.draw.content((0.59, 0.08),angle:-1.94rad+pi,[$q+k_3$],..north)
 cetz.draw.hobby((0.60, 0.35),(0.53, 0.09),(0.40, -0.15),..mom_arr)
 })
 let embedding2i0=cetz.canvas(length:50%,{
@@ -118,13 +118,13 @@ node(node4.pos)
 let node5= (pos:(0.65, 0.49))
 node(node5.pos)
 edge(node1.pos,(0.00, -0.65),node0.pos,decoration:"electron",angle:0.00rad)
-cetz.draw.content((0.00, -0.77),angle:0.00rad,[$q+k_(0)$])
+cetz.draw.content((0.00, -0.77),angle:0.00rad,[$q+k_(0)$],..north)
 cetz.draw.hobby((0.46, -0.69),(0.00, -0.71),(-0.46, -0.69),..mom_arr)
 edge(node1.pos,(1.00, -1.00),decoration:"electron",angle:5.55rad)
-cetz.draw.content((0.87, -0.72),angle:5.55rad,[$k_(0)$])
+cetz.draw.content((0.87, -0.72),angle:5.55rad,[$k_(0)$],..south)
 cetz.draw.hobby((0.97, -0.89),(0.69, -0.64),..mom_arr)
 edge(node0.pos,(-1.00, -1.00),decoration:"electron",angle:0.72rad)
-cetz.draw.content((-0.71, -0.90),angle:0.72rad,[$k_(0)$])
+cetz.draw.content((-0.71, -0.90),angle:0.72rad,[$k_(0)$],..north)
 cetz.draw.hobby((-0.61, -0.73),(-0.89, -0.98),..mom_arr)
 edge(node0.pos,(-0.66, -0.09),node4.pos,decoration:"wave",angle:1.65rad)
 cetz.draw.content((-0.78, -0.10),angle:1.65rad,[$q$])
@@ -133,25 +133,25 @@ edge(node5.pos,(0.66, -0.09),node1.pos,decoration:"wave",angle:-1.65rad)
 cetz.draw.content((0.78, -0.10),angle:-1.65rad,[$q$])
 cetz.draw.hobby((0.72, 0.38),(0.72, -0.07),(0.66, -0.52),..mom_arr)
 edge(node2.pos,(-1.00, 0.00),decoration:"arrow",angle:3.36rad)
-cetz.draw.content((-0.65, -0.04),angle:3.36rad,[$p+q+k_3$])
+cetz.draw.content((-0.65, -0.04),angle:3.36rad+pi,[$p+q+k_3$],..north)
 cetz.draw.hobby((-0.89, -0.04),(-0.43, 0.07),..mom_arr)
 edge(node3.pos,(1.00, 0.00),decoration:"arrow",angle:2.92rad)
-cetz.draw.content((0.70, 0.19),angle:2.92rad,[$p+q+k_3$])
+cetz.draw.content((0.70, 0.19),angle:2.92rad+pi,[$p+q+k_3$],..south)
 cetz.draw.hobby((0.46, 0.18),(0.92, 0.08),..mom_arr)
 edge(node2.pos,(0.00, 0.08),node3.pos,decoration:"coil",angle:0.00rad)
-cetz.draw.content((0.00, -0.04),angle:0.00rad,[$p+q+2 k_3$])
+cetz.draw.content((0.00, -0.04),angle:0.00rad,[$p+q+2 k_3$],..north)
 cetz.draw.hobby((-0.29, 0.07),(0.00, 0.02),(0.30, 0.07),..mom_arr)
 edge(node5.pos,(0.14, 0.40),node2.pos,decoration:"arrow",angle:3.47rad)
-cetz.draw.content((0.10, 0.52),angle:3.47rad,[$k_3$])
+cetz.draw.content((0.10, 0.52),angle:3.47rad+pi,[$k_3$],..south)
 cetz.draw.hobby((0.54, 0.54),(0.10, 0.46),(-0.29, 0.26),..mom_arr)
 edge(node3.pos,(-0.13, 0.40),node4.pos,decoration:"arrow",angle:2.82rad)
-cetz.draw.content((-0.10, 0.52),angle:2.82rad,[$k_3$])
+cetz.draw.content((-0.10, 0.52),angle:2.82rad+pi,[$k_3$],..south)
 cetz.draw.hobby((0.29, 0.26),(-0.10, 0.46),(-0.54, 0.55),..mom_arr)
 edge(node4.pos,(-1.00, 1.00),decoration:"arrow",angle:2.18rad)
-cetz.draw.content((-0.92, 0.68),angle:2.18rad,[$q+k_3$])
+cetz.draw.content((-0.92, 0.68),angle:2.18rad+pi,[$q+k_3$],..north)
 cetz.draw.hobby((-0.75, 0.54),(-0.99, 0.88),..mom_arr)
 edge(node5.pos,(1.00, 1.00),decoration:"arrow",angle:4.11rad)
-cetz.draw.content((0.73, 0.81),angle:4.11rad,[$q+k_3$])
+cetz.draw.content((0.73, 0.81),angle:4.11rad+pi,[$q+k_3$],..south)
 cetz.draw.hobby((0.89, 0.95),(0.66, 0.61),..mom_arr)
 })
 let embedding2f0=cetz.canvas(length:50%,{
@@ -168,40 +168,40 @@ node(node4.pos)
 let node5= (pos:(-0.72, 0.38))
 node(node5.pos)
 edge(node0.pos,(1.00, -1.00),decoration:"electron",angle:6.01rad)
-cetz.draw.content((0.74, -0.80),angle:6.01rad,[$-q+k_(0)$])
+cetz.draw.content((0.74, -0.80),angle:6.01rad,[$-q+k_(0)$],..south)
 cetz.draw.hobby((0.92, -0.91),(0.52, -0.80),..mom_arr)
 edge(node1.pos,(-1.00, -1.00),decoration:"electron",angle:0.72rad)
-cetz.draw.content((-0.74, -0.93),angle:0.72rad,[$-q+k_(0)$])
+cetz.draw.content((-0.74, -0.93),angle:0.72rad,[$-q+k_(0)$],..north)
 cetz.draw.hobby((-0.67, -0.79),(-0.89, -0.98),..mom_arr)
 edge(node0.pos,(-0.12, -0.80),node1.pos,decoration:"electron",angle:6.14rad)
-cetz.draw.content((-0.14, -0.92),angle:6.14rad,[$k_(0)$])
+cetz.draw.content((-0.14, -0.92),angle:6.14rad,[$k_(0)$],..north)
 cetz.draw.hobby((0.30, -0.89),(-0.13, -0.86),(-0.55, -0.77),..mom_arr)
 edge(node0.pos,(0.24, -0.50),node4.pos,decoration:"wave",angle:2.04rad)
-cetz.draw.content((0.35, -0.44),angle:2.04rad,[$-q$])
+cetz.draw.content((0.35, -0.44),angle:2.04rad+pi,[$-q$],..south)
 cetz.draw.hobby((0.43, -0.73),(0.29, -0.45),(0.14, -0.17),..mom_arr)
 edge(node5.pos,(-0.71, -0.16),node1.pos,decoration:"wave",angle:4.79rad)
 cetz.draw.content((-0.83, -0.17),angle:4.79rad,[$-q$])
 cetz.draw.hobby((-0.78, 0.28),(-0.77, -0.16),(-0.71, -0.59),..mom_arr)
 edge(node2.pos,(-1.00, 0.00),decoration:"arrow",angle:3.59rad)
-cetz.draw.content((-0.40, 0.16),angle:3.59rad,[$p+k_3$])
+cetz.draw.content((-0.40, 0.16),angle:3.59rad+pi,[$p+k_3$],..north)
 cetz.draw.hobby((-0.88, -0.01),(0.03, 0.43),..mom_arr)
 edge(node3.pos,(1.00, 0.00),decoration:"arrow",angle:2.72rad)
-cetz.draw.content((0.88, 0.18),angle:2.72rad,[$p+k_3$])
+cetz.draw.content((0.88, 0.18),angle:2.72rad+pi,[$p+k_3$],..south)
 cetz.draw.hobby((0.78, 0.16),(0.93, 0.10),..mom_arr)
 edge(node2.pos,(0.41, 0.40),node3.pos,decoration:"coil",angle:-0.58rad)
 cetz.draw.content((0.48, 0.50),angle:-0.58rad,[$p+2 k_3$])
 cetz.draw.hobby((0.18, 0.57),(0.45, 0.44),(0.67, 0.24),..mom_arr)
 edge(node5.pos,(-1.00, 1.00),decoration:"arrow",angle:2.00rad)
-cetz.draw.content((-0.97, 0.64),angle:2.00rad,[$k_3$])
+cetz.draw.content((-0.97, 0.64),angle:2.00rad+pi,[$k_3$],..north)
 cetz.draw.hobby((-0.81, 0.45),(-1.01, 0.88),..mom_arr)
 edge(node2.pos,(1.00, 1.00),decoration:"arrow",angle:3.62rad)
-cetz.draw.content((0.49, 0.87),angle:3.62rad,[$k_3$])
+cetz.draw.content((0.49, 0.87),angle:3.62rad+pi,[$k_3$],..south)
 cetz.draw.hobby((0.88, 1.01),(0.16, 0.63),..mom_arr)
 edge(node3.pos,(0.38, -0.02),node4.pos,decoration:"arrow",angle:-2.71rad)
-cetz.draw.content((0.43, -0.12),angle:-2.71rad,[$k_3$])
+cetz.draw.content((0.43, -0.12),angle:-2.71rad+pi,[$k_3$],..north)
 cetz.draw.hobby((0.64, 0.06),(0.40, -0.07),(0.14, -0.17),..mom_arr)
 edge(node4.pos,(-0.34, 0.13),node5.pos,decoration:"arrow",angle:2.55rad)
-cetz.draw.content((-0.28, 0.23),angle:2.55rad,[$-q+k_3$])
+cetz.draw.content((-0.28, 0.23),angle:2.55rad+pi,[$-q+k_3$],..south)
 cetz.draw.hobby((0.01, -0.03),(-0.30, 0.17),(-0.61, 0.38),..mom_arr)
 })
 let embedding3f0=cetz.canvas(length:50%,{
@@ -218,40 +218,40 @@ node(node4.pos)
 let node5= (pos:(0.42, 0.49))
 node(node5.pos)
 edge(node0.pos,(1.00, -1.00),decoration:"electron",angle:5.76rad)
-cetz.draw.content((0.75, -0.71),angle:5.76rad,[$-q+k_(0)$])
+cetz.draw.content((0.75, -0.71),angle:5.76rad,[$-q+k_(0)$],..south)
 cetz.draw.hobby((0.94, -0.90),(0.49, -0.63),..mom_arr)
 edge(node1.pos,(-1.00, -1.00),decoration:"electron",angle:0.50rad)
-cetz.draw.content((-0.63, -0.93),angle:0.50rad,[$-q+k_(0)$])
+cetz.draw.content((-0.63, -0.93),angle:0.50rad,[$-q+k_(0)$],..north)
 cetz.draw.hobby((-0.43, -0.75),(-0.88, -1.00),..mom_arr)
 edge(node0.pos,(0.00, -0.70),node1.pos,decoration:"electron",angle:0.02rad)
-cetz.draw.content((0.01, -0.82),angle:0.02rad,[$k_(0)$])
+cetz.draw.content((0.01, -0.82),angle:0.02rad,[$k_(0)$],..north)
 cetz.draw.hobby((0.32, -0.72),(0.01, -0.76),(-0.31, -0.73),..mom_arr)
 edge(node0.pos,(-0.06, -0.08),node4.pos,decoration:"wave",angle:2.16rad)
-cetz.draw.content((-0.16, -0.15),angle:2.16rad,[$-q$])
+cetz.draw.content((-0.16, -0.15),angle:2.16rad+pi,[$-q$],..north)
 cetz.draw.hobby((0.23, -0.57),(-0.11, -0.11),(-0.40, 0.38),..mom_arr)
 edge(node5.pos,(0.07, -0.13),node1.pos,decoration:"wave",angle:-2.18rad)
-cetz.draw.content((0.17, -0.20),angle:-2.18rad,[$-q$])
+cetz.draw.content((0.17, -0.20),angle:-2.18rad+pi,[$-q$],..north)
 cetz.draw.hobby((0.41, 0.34),(0.13, -0.15),(-0.23, -0.59),..mom_arr)
 edge(node2.pos,(-1.00, 0.00),decoration:"arrow",angle:3.37rad)
-cetz.draw.content((-0.69, -0.05),angle:3.37rad,[$p-q+k_3$])
+cetz.draw.content((-0.69, -0.05),angle:3.37rad+pi,[$p-q+k_3$],..north)
 cetz.draw.hobby((-0.89, -0.04),(-0.52, 0.05),..mom_arr)
 edge(node3.pos,(1.00, 0.00),decoration:"arrow",angle:2.87rad)
-cetz.draw.content((0.75, 0.19),angle:2.87rad,[$p-q+k_3$])
+cetz.draw.content((0.75, 0.19),angle:2.87rad+pi,[$p-q+k_3$],..south)
 cetz.draw.hobby((0.55, 0.19),(0.92, 0.08),..mom_arr)
 edge(node2.pos,(0.01, 0.09),node3.pos,decoration:"coil",angle:0.04rad)
 cetz.draw.content((0.01, -0.03),angle:0.04rad,[$p-q+2 k_3$])
 cetz.draw.hobby((-0.36, 0.06),(0.00, 0.03),(0.36, 0.08),..mom_arr)
 edge(node5.pos,(-0.04, 0.34),node2.pos,decoration:"arrow",angle:3.55rad)
-cetz.draw.content((-0.08, 0.45),angle:3.55rad,[$k_3$])
+cetz.draw.content((-0.08, 0.45),angle:3.55rad+pi,[$k_3$])
 cetz.draw.hobby((0.31, 0.53),(-0.05, 0.40),(-0.39, 0.23),..mom_arr)
 edge(node3.pos,(0.03, 0.45),node4.pos,decoration:"arrow",angle:2.75rad)
-cetz.draw.content((0.08, 0.56),angle:2.75rad,[$k_3$])
+cetz.draw.content((0.08, 0.56),angle:2.75rad+pi,[$k_3$],..south)
 cetz.draw.hobby((0.41, 0.27),(0.08, 0.49),(-0.31, 0.59),..mom_arr)
 edge(node4.pos,(-1.00, 1.00),decoration:"arrow",angle:2.47rad)
-cetz.draw.content((-0.78, 0.67),angle:2.47rad,[$-q+k_3$])
+cetz.draw.content((-0.78, 0.67),angle:2.47rad+pi,[$-q+k_3$],..north)
 cetz.draw.hobby((-0.53, 0.55),(-0.96, 0.89),..mom_arr)
 edge(node5.pos,(1.00, 1.00),decoration:"arrow",angle:3.86rad)
-cetz.draw.content((0.63, 0.84),angle:3.86rad,[$-q+k_3$])
+cetz.draw.content((0.63, 0.84),angle:3.86rad+pi,[$-q+k_3$],..south)
 cetz.draw.hobby((0.89, 0.98),(0.45, 0.60),..mom_arr)
 })
 let embedding4i0=cetz.canvas(length:50%,{
@@ -268,31 +268,31 @@ node(node4.pos)
 let node5= (pos:(0.32, -0.24))
 node(node5.pos)
 edge(node1.pos,(0.00, -0.97),node0.pos,decoration:"electron",angle:0.00rad)
-cetz.draw.content((0.00, -1.09),angle:0.00rad,[$q+k_(0)$])
+cetz.draw.content((0.00, -1.09),angle:0.00rad,[$q+k_(0)$],..north)
 cetz.draw.hobby((0.42, -1.00),(0.00, -1.03),(-0.42, -1.00),..mom_arr)
 edge(node1.pos,(1.00, -1.00),decoration:"electron",angle:6.12rad)
-cetz.draw.content((0.78, -0.84),angle:6.12rad,[$k_(0)$])
+cetz.draw.content((0.78, -0.84),angle:6.12rad,[$k_(0)$],..south)
 cetz.draw.hobby((0.91, -0.92),(0.62, -0.88),..mom_arr)
 edge(node0.pos,(-1.00, -1.00),decoration:"electron",angle:0.16rad)
-cetz.draw.content((-0.74, -1.08),angle:0.16rad,[$k_(0)$])
+cetz.draw.content((-0.74, -1.08),angle:0.16rad,[$k_(0)$],..north)
 cetz.draw.hobby((-0.60, -1.00),(-0.89, -1.04),..mom_arr)
 edge(node0.pos,(-0.45, -0.58),node4.pos,decoration:"wave",angle:1.29rad)
-cetz.draw.content((-0.56, -0.55),angle:1.29rad,[$q$])
+cetz.draw.content((-0.56, -0.55),angle:1.29rad,[$q$],..south)
 cetz.draw.hobby((-0.56, -0.84),(-0.50, -0.55),(-0.39, -0.28),..mom_arr)
 edge(node5.pos,(0.46, -0.58),node1.pos,decoration:"wave",angle:-1.30rad)
-cetz.draw.content((0.57, -0.55),angle:-1.30rad,[$q$])
+cetz.draw.content((0.57, -0.55),angle:-1.30rad,[$q$],..south)
 cetz.draw.hobby((0.41, -0.28),(0.51, -0.55),(0.57, -0.84),..mom_arr)
 edge(node2.pos,(-1.00, 0.00),decoration:"arrow",angle:3.52rad)
-cetz.draw.content((-0.38, 0.12),angle:3.52rad,[$1/2 p-1/2 k_3$])
+cetz.draw.content((-0.38, 0.12),angle:3.52rad+pi,[$1/2 p-1/2 k_3$],..north)
 cetz.draw.hobby((-0.88, -0.02),(0.08, 0.37),..mom_arr)
 edge(node3.pos,(1.00, 0.00),decoration:"arrow",angle:2.76rad)
-cetz.draw.content((0.47, 0.34),angle:2.76rad,[$1/2 p-1/2 k_3$])
+cetz.draw.content((0.47, 0.34),angle:2.76rad+pi,[$1/2 p-1/2 k_3$],..south)
 cetz.draw.hobby((-0.03, 0.48),(0.93, 0.09),..mom_arr)
 edge(node2.pos,(1.00, 1.00),decoration:"coil",angle:0.56rad)
-cetz.draw.content((0.51, 0.83),angle:0.56rad,[$1/2 p+1/2 k_3$])
+cetz.draw.content((0.51, 0.83),angle:0.56rad,[$1/2 p+1/2 k_3$],..south)
 cetz.draw.hobby((0.20, 0.56),(0.88, 1.00),..mom_arr)
 edge(node3.pos,(-1.00, 1.00),decoration:"coil",angle:5.72rad)
-cetz.draw.content((-0.64, 0.63),angle:5.72rad,[$1/2 p+1/2 k_3$])
+cetz.draw.content((-0.64, 0.63),angle:5.72rad,[$1/2 p+1/2 k_3$],..north)
 cetz.draw.hobby((-0.95, 0.90),(-0.26, 0.46),..mom_arr)
 edge(node5.pos,(0.29, 0.13),node2.pos,decoration:"arrow",angle:1.82rad)
 cetz.draw.content((0.41, 0.16),angle:1.82rad,[$k_3$])
@@ -301,7 +301,7 @@ edge(node3.pos,(-0.28, 0.13),node4.pos,decoration:"arrow",angle:4.48rad)
 cetz.draw.content((-0.40, 0.15),angle:4.48rad,[$k_3$])
 cetz.draw.hobby((-0.23, 0.42),(-0.34, 0.13),(-0.37, -0.17),..mom_arr)
 edge(node4.pos,(0.01, -0.27),node5.pos,decoration:"arrow",angle:0.01rad)
-cetz.draw.content((0.01, -0.39),angle:0.01rad,[$q+k_3$])
+cetz.draw.content((0.01, -0.39),angle:0.01rad,[$q+k_3$],..north)
 cetz.draw.hobby((-0.25, -0.31),(0.01, -0.33),(0.27, -0.31),..mom_arr)
 })
 let embedding5i0=cetz.canvas(length:50%,{
@@ -342,7 +342,7 @@ edge(node3.pos,(-1.00, 0.00),decoration:"coil",angle:1.10rad)
 cetz.draw.content((-0.77, 0.18),angle:1.10rad,[$p+k_3$],..north)
 cetz.draw.hobby((-0.90, 0.06),(-0.75, 0.35),..mom_arr)
 edge(node5.pos,(0.48, -0.07),node2.pos,decoration:"arrow",angle:2.28rad)
-cetz.draw.content((0.38, -0.15),angle:2.28rad+pi,[$k_3$])
+cetz.draw.content((0.38, -0.15),angle:2.28rad+pi,[$k_3$],..north)
 cetz.draw.hobby((0.63, -0.26),(0.43, -0.12),(0.31, 0.11),..mom_arr)
 edge(node3.pos,(-1.00, 1.00),decoration:"arrow",angle:1.99rad)
 cetz.draw.content((-0.99, 0.68),angle:1.99rad+pi,[$k_3$],..north)
@@ -1221,7 +1221,6 @@ edge(node5.pos,(0.80, -0.10),node1.pos,decoration:"wave",angle:-1.85rad)
 cetz.draw.content((0.91, -0.14),angle:-1.85rad,[$q$])
 cetz.draw.hobby((0.96, 0.36),(0.86, -0.09),(0.71, -0.53),..mom_arr)
 edge(node2.pos,(1.00, 0.00),decoration:"arrow",angle:5.98rad)
-cetz.draw.content((0.79, 0.19),angle:5.98rad,[$-p-q-k_3$])
 cetz.draw.hobby((0.92, 0.09),(0.62, 0.18),..mom_arr)
 edge(node3.pos,(-1.00, 0.00),decoration:"arrow",angle:0.30rad)
 cetz.draw.content((-0.72, -0.04),angle:0.30rad,[$-p-q-k_3$])
@@ -1241,6 +1240,7 @@ cetz.draw.hobby((-0.99, 0.58),(-1.04, 0.89),..mom_arr)
 edge(node5.pos,(1.00, 1.00),decoration:"arrow",angle:4.55rad)
 cetz.draw.content((0.84, 0.76),angle:4.55rad+3.14rad,[$q+k_3$],anchor:"south")
 cetz.draw.hobby((0.92, 0.91),(0.87, 0.60),..mom_arr)
+cetz.draw.content((0.79, 0.19),angle:5.98rad,[$-p-q-k_3$])
 })
 let embedding19f0=cetz.canvas(length:50%,{
 let node0= (pos:(0.52, -0.80))
@@ -2230,86 +2230,93 @@ edge(node4.pos,(0.48, 0.13),node5.pos,decoration:"arrow",angle:1.21rad)
 cetz.draw.content((0.59, 0.08),angle:1.21rad,[$-q+k_3$])
 cetz.draw.hobby((0.40, -0.15),(0.53, 0.09),(0.60, 0.35),..mom_arr)
 })
-dtlarge((1,1,1,1,1,1,1,1,1,))
+// dtlarge((1,1,1,1,1,1,1,1,1,))
 let emb(a)={
   set text(size: 8pt,weight: "bold");a
 }
 
-let wind(..args)={
-  set text(size: 18pt)
-  math.vec(..((args.pos()).map(a=>$#a$)))
+let wind(i,..args)={
+  show math.equation: set text(font: "New Computer Modern Math",size:15pt,fill:black)
+  $ bold(upright(w))_#i^#box(dtrealsmall((1,1,1,1,1,1,1,1,1,1),scale:0.5mm,radius:0mm),baseline: -0.5mm)=
+  #math.vec(..((args.pos()).map(a=>$#a$))) $
 }
 
 let empty =[$emptyset$]
-table(columns: (1fr,7cm,7cm),align: horizon+center,inset: 20pt,
+show heading: it => [
+  #set align(center)
+  #set text(13pt, weight: 600)
+  #block(smallcaps(it.body))
+]
+[== Table of self-energy embeddings]
+table(columns: (1fr,7cm,7cm),rows:(2cm,7cm),align: horizon+center,inset: 20pt,
 [Embedding Signature],[Cut with support $e_1$],[Cut with support $e_2$],
-wind(1,0,-1,1),emb(embedding1i0),empty,
+wind(1,1,0,-1,1),emb(embedding1i0),empty,
 
-wind(1, 1, -1, 1),emb(embedding2i0),emb(embedding2f0),
+wind(2,1, 1, -1, 1),emb(embedding2i0),emb(embedding2f0),
 
-wind(1, 2, -1, 1),empty,emb(embedding3f0),
+wind(3,1, 2, -1, 1),empty,emb(embedding3f0),
 
-wind(1, 0, -2, -1),emb(embedding4i0),empty,
+wind(4,1, 0, -2, -1),emb(embedding4i0),empty,
 
-wind(1, 0, -1, 0),emb(embedding5i0),empty,
+wind(5,1, 0, -1, 0),emb(embedding5i0),empty,
 
-wind(1, 0, 0, 1),emb(embedding6i0),empty,
+wind(6,1, 0, 0, 1),emb(embedding6i0),empty,
 
-wind(1, 0, 1, 2),emb(embedding7i0),empty,
+wind(7,1, 0, 1, 2),emb(embedding7i0),empty,
 
-wind(1, 1, -2, -1),empty,emb(embedding8f0),
+wind(8,1, 1, -2, -1),empty,emb(embedding8f0),
 
-wind(1, 1, -1, 0),emb(embedding9i0),emb(embedding9f0),
+wind(9,1, 1, -1, 0),emb(embedding9i0),emb(embedding9f0),
 
-wind(1, 1, 0, 1),emb(embedding10i0),emb(embedding10f0),
+wind(10,1, 1, 0, 1),emb(embedding10i0),emb(embedding10f0),
 
-wind(1, 1, 1, 2),emb(embedding11i0),emb(embedding11f0),
+wind(11,1, 1, 1, 2),emb(embedding11i0),emb(embedding11f0),
 
-wind(1, 2, -1, 0),empty,emb(embedding12f0),
+wind(12,1, 2, -1, 0),empty,emb(embedding12f0),
 
-wind(1, 2, 0, 1),empty,emb(embedding13f0),
+wind(13,1, 2, 0, 1),empty,emb(embedding13f0),
 
-wind(1, 2, 1, 2),empty,emb(embedding14f0),
+wind(14,1, 2, 1, 2),empty,emb(embedding14f0),
 
-wind(1, -1, -1, -1),emb(embedding15i0),empty,
+wind(15,1, -1, -1, -1),emb(embedding15i0),empty,
 
-wind(1, 0, -1, -1),emb(embedding16i0),emb(embedding16f0),
+wind(16,1, 0, -1, -1),emb(embedding16i0),emb(embedding16f0),
 
-wind(1, 0, 1, 1),emb(embedding17i0),empty,
+wind(17,1, 0, 1, 1),emb(embedding17i0),empty,
 
-wind(1, 1, -1, -1),empty,emb(embedding18f0),
+wind(18,1, 1, -1, -1),empty,emb(embedding18f0),
 
-wind(1, 1, 1, 1),emb(embedding19i0),emb(embedding19f0),
+wind(19,1, 1, 1, 1),emb(embedding19i0),emb(embedding19f0),
 
-wind(1, 2, 1, 1),empty,emb(embedding20f0),
+wind(20,1, 2, 1, 1),empty,emb(embedding20f0),
 
-wind(1, -1, -1, -2),emb(embedding21i0),empty,
+wind(21,1, -1, -1, -2),emb(embedding21i0),empty,
 
-wind(1, -1, 0, -1),emb(embedding22i0),empty,
+wind(22,1, -1, 0, -1),emb(embedding22i0),empty,
 
-wind(1, -1, 1, 0),emb(embedding23i0),empty,
+wind(23,1, -1, 1, 0),emb(embedding23i0),empty,
 
-wind(1, 0, -1, -2),emb(embedding24i0),emb(embedding24f0),
+wind(24,1, 0, -1, -2),emb(embedding24i0),emb(embedding24f0),
 
-wind(1, 0, 0, -1),emb(embedding25i0),emb(embedding25f0),
+wind(25,1, 0, 0, -1),emb(embedding25i0),emb(embedding25f0),
 
-wind(1, 0, 1, 0),emb(embedding26i0),emb(embedding26f0),
+wind(26,1, 0, 1, 0),emb(embedding26i0),emb(embedding26f0),
 
-wind(1, 0, 2, 1),emb(embedding27i0),empty,
+wind(27,1, 0, 2, 1),emb(embedding27i0),empty,
 
-wind(1, 1, -1, -2),empty,emb(embedding28f0),
+wind(28,1, 1, -1, -2),empty,emb(embedding28f0),
 
-wind(1, 1, 0, -1),empty,emb(embedding29f0),
+wind(29,1, 1, 0, -1),empty,emb(embedding29f0),
 
-wind(1, 1, 1, 0),empty,emb(embedding30f0),
+wind(30,1, 1, 1, 0),empty,emb(embedding30f0),
 
-wind(1, 1, 2, 1),empty,emb(embedding31f0),
+wind(31,1, 1, 2, 1),empty,emb(embedding31f0),
 
-wind(1, -1, 1, -1),emb(embedding32i0),empty,
+wind(32,1, -1, 1, -1),emb(embedding32i0),empty,
 
-wind(1, 0, 1, -1),emb(embedding33i0),emb(embedding33f0),
+wind(33,1, 0, 1, -1),emb(embedding33i0),emb(embedding33f0),
 
-wind(1, 1, 1, -1),empty,emb(embedding34f0),
+wind(34,1, 1, 1, -1),empty,emb(embedding34f0),
 )
 
 

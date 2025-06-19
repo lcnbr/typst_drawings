@@ -82,7 +82,51 @@ let d = diagram(
 // }
 d
 }
-
+#let dtrealsmall(bitvec,scale:1.5mm,radius:0.3mm)={
+  
+let d = diagram(
+	..smalldiag,
+ spacing:scale,
+ dtnodes(radius:radius,layer:-1,fill:black,stroke:1pt+black.lighten(40%)),{
+  let dtedges =  (
+ (vertices:(<OW>,<OE>),bend:88deg),
+ (vertices:(<OE>,<OW>),bend:88deg),
+ (vertices:(<IE>,<OE>)),
+ (vertices:(<IW>,<OW>)),
+ (vertices:(<IN>,<IE>),bend:43deg),
+ (vertices:(<IE>,<IS>),bend:43deg),
+ (vertices:(<IW>,<IN>),bend:43deg),
+ (vertices:(<IS>,<IW>),bend:43deg),
+ (vertices:(<IN>,<IS>)),
+  ) 
+  for (eid,(i,e)) in bitvec.zip(dtedges).enumerate(){
+    if i != 0{
+      if type(i)==float{
+        if i>0.{
+        edge(..e,marks:((inherit:">",pos:0.5),),mark-scale:40%)
+          
+        }else{
+        edge(..e,marks:((inherit:">",pos:0.5,rev:true),),mark-scale:40%)
+          
+        }
+        
+      }else{
+        edge(..e,..edgeA)
+        
+      }
+    }else{
+      edge(..e,..edgeB,stroke:(dash:"dotted",paint:black.lighten(80%)))
+    }
+  }
+ }
+)
+// context {
+//   let (width, height) = measure(d)
+//   // width*50%
+//   place(d)
+// }
+d
+}
 
 #let labedgeB(eid) = (marks:"->-",mark-scale:40%,label:box([$e_#str(eid)$]),label-sep:1mm)
 #set page(height: auto,width: auto,margin: 5mm)
